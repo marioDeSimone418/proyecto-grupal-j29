@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --menu-height-1: 400px;
+            --menu-height-2: 500px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            background-color: #183469;
+            padding: 0 20px;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        #menu a,
+        header a {
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        #menu a:hover,
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        #header-left {
+            display: flex;
+            gap: 10px;
+            height: 80%;
+            align-items: center;
+        }
+
+        #logo img {
+            max-width: 60px;
+        }
+
+        #title {
+            font-size: x-large;
+        }
+
+        #header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+
+        #menu-button {
+            height: 30px;
+            width: 30px;
+            border: none;
+            background-color: #00000000;
+            background-image: url(bars-s-svgrepo-com.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+        }
+
+        #menu-button:hover {
+            filter: brightness(0.8);
+        }
+
+        #menu {
+            position: absolute;
+            height: var(--menu-height);
+            width: 200px;
+            background-color: #181c4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 10px;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .expanded {
+            animation: expanded 0.1s linear;
+        }
+
+        .collapsed {
+            animation: collapsed 0.1s linear;
+        }
+
+        @keyframes expanded {
+            0% {
+                height: 0px;
+            }
+
+            100% {
+                height: var(--menu-height-1);
+            }
+        }
+
+        @keyframes collapsed {
+            0% {
+                height: var(--menu-height-1);
+            }
+
+            100% {
+                height: 0px;
+            }
+        }
+
+        @media (max-width:1200px) {
+            #header-center {
+                position: static;
+                left: auto;
+                transform: none;
+            }
+        }
+
+        @media (max-width:1000px) {
+            #header-center {
+                display: none;
+            }
+
+            #menu {
+                height: var(--menu-height-2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="header-left">
+            <div id="logo">
+                <a href="">
+                    <img src="logo.png" alt="logo">
+                </a>
+            </div>
+            <div id="title"><a href="">C.T.P. Aserrí</a></div>
+        </div>
+        <div id="header-center">
+            <nav id="nav-links">
+            </nav>
+        </div>
+        <div id="header-right">
+            <div>
+                <button id="menu-button"></button>
+            </div>
+        </div>
+    </header>
+    <template id="template-links">
+        <a href="">Inicio</a>
+        <a href="">¿Quiénes somos?</a>
+        <a href="">Área administrativa</a>
+        <a href="">Área académica</a>
+        <a href="">Admisión 2025</a>
+    </template>
+    <template id="collapse-menu">
+        <div id="menu">
+            <!-- aquí va el contenido del menú -->
+            <a href="">Comidas típicas</a>
+            <a href="">Bailes típicos</a>
+            <a href="">Símbolos nacionales</a>
+            <a href="">Historia</a>
+            <a href="">Actividades Festivas</a>
+            <a href="">Valores</a>
+            <a href="">Lugares y ciudades representativas</a>
+            <a href="">Independencia, democracia e identidad</a>
+            <!-- ... -->
+        </div>
+    </template>
+    <script>
+        const links = document.getElementById("template-links")
+        const navbar = document.getElementById("nav-links")
+        //add links to navbar 
+        navbar.appendChild(document.importNode(links.content, true))
+
+        const button = document.getElementById("menu-button")
+
+        class pos {
+            static left(element) {
+                return element.getBoundingClientRect().left
+            }
+            static top(element) {
+                return element.getBoundingClientRect().top
+            }
+            static width(element) {
+                return element.getBoundingClientRect().width
+            }
+            static height(element) {
+                return element.getBoundingClientRect().height
+            }
+        }
+
+        function menuPosition(menu, button) {
+            const verticalGap = 10
+            const horizontalGap = 0
+            if (menu && button) {
+                menu.style.left = (pos.left(button) - pos.width(menu) + pos.width(button) + horizontalGap) + "px"
+                menu.style.top = (pos.top(button) + pos.height(button) + verticalGap) + "px"
+            } else {
+                console.error("error: missing elements");
+            }
+        }
+
+        window.addEventListener("resize", () => {
+            if (document.getElementById("menu")) {
+                menuPosition(document.getElementById("menu"), button)
+            }
+        })
+
+        button.onclick = () => {
+            if (!document.getElementById("menu")) {
+                const menuElement = document.importNode(document.getElementById("collapse-menu").content, true)
+                if (window.innerWidth < 1000) {
+                    menuElement.querySelector("#menu").appendChild(document.importNode(links.content, true))
+                }
+                document.body.appendChild(menuElement)
+                
+                document.getElementById("menu").classList.add("expanded")
+                menuPosition(menu, button)
+            } else {
+                const menu = document.getElementById("menu")
+                if (menu.classList.contains("expanded")) menu.classList.remove("expanded")
+                menu.classList.add("collapsed")
+                const animations = menu.getAnimations()
+                Promise.all(animations.map(anim => anim.finished)).then(() => menu.remove())
+            }
+        }
+    </script>
+</body>
+
+</html>
