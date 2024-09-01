@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTP de Aserrí | Celebrando el 15 de Setiembre</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/components/Footer/styles.css">
+    <link rel="shortcut icon" href="/img/Costa-rica-Flag-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/components/Navbar/navbar.css">
+</head>
+<body>
+    <header>
+        <div id="header-left">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="/components/Navbar/logo.png" alt="logo">
+                </a>
+            </div>
+            <div id="title"><a href="index.html">CTP Aserrí</a></div>
+        </div>
+        <div id="header-center">
+            <nav id="nav-links">
+            </nav>
+        </div>
+        <div id="header-right">
+            <div>
+                <button id="menu-button"></button>
+            </div>
+        </div>
+    </header>
+    <template id="template-links">
+        <a href="index.html">Inicio</a>
+        <a href="index.html">¿Quiénes somos?</a>
+        <a href="index.html">Área administrativa</a>
+        <a href="index.html">Área académica</a>
+        <a href="index.html">Admisión 2025</a>
+    </template>
+    <template id="collapse-menu">
+        <div id="menu">
+            <!-- aquí va el contenido del menú -->
+            <a href="/components/pag1/html/pag1.html">Comidas típicas</a>
+            <a href="/components/pag1/html/pag1.html">Bailes típicos</a>
+            <a href="/components/pag1/html/pag1.html">Símbolos nacionales</a>
+            <a href="/components/pag1/html/pag1.html">Historia</a>
+            <a href="/components/pag2/html/pag2.html">Actividades Festivas</a>
+            <a href="/components/pag2/html/pag2.html">Valores</a>
+            <a href="/components/pag2/html/pag2.html">Lugares y ciudades representativas</a>
+            <a href="/components/pag2/html/pag2.html">Independencia, democracia e identidad</a>
+        </div>
+    </template>
+    <main>
+        <section>
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/img/paisaje1.jpg" class="d-block">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/img/Comidatip2.jpg" class="d-block">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/img/Lugarcr.avif" class="d-block">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/img/bailet.webp" class="d-block">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </section>
+        <section>
+            <div class="card-area">
+                <div>
+                    <div class="card">
+                        <img src="/img/Comidatip2.jpg">
+                        <h3>Comidas tipicas en Costa Rica</h3>
+                        <p>La gastronomía costarricense es una deliciosa mezcla de sabores y tradiciones que reflejan la diversidad cultural del país. Basada en ingredientes frescos y locales, la cocina de Costa Rica destaca por su sencillez y sabor auténtico. Los platos suelen incluir arroz, frijoles, verduras frescas y una variedad de carnes, todo preparado con especias y hierbas que realzan los sabores naturales de los alimentos.</p>
+                        <button onclick="window.location.href='components/pag1/html/pag1.html'">Más información</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="card">
+                        <img src="/img/simnacional1.jpg">
+                        <h3>Los simblolos nacionales de Costa Rica</h3>
+                        <p>Costa Rica cuenta con una rica variedad de símbolos nacionales que representan su identidad y patrimonio cultural. Entre los más destacados se encuentran la bandera y el escudo nacionales, que datan de 1848. La bandera, con sus colores azul, blanco y rojo, simboliza el cielo, la paz y la sangre derramada por la libertad, respectivamente</p>
+                        <button onclick="window.location.href='components/pag1/html/pag1.html'">Más información</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="card">
+                        <img src="/img/valores.jpg">
+                        <h3>Los valores del pueblo costarricense</h3>
+                        <p>El pueblo costarricense se caracteriza por una serie de valores que reflejan su identidad y cultura. La solidaridad es uno de los valores más destacados, manifestándose en la disposición de ayudar a los demás y en el fuerte sentido de comunidad. Este valor se ve reflejado en la vida cotidiana y en la respuesta colectiva ante situaciones de necesidad o emergencia.</p>
+                        <button onclick="window.location.href='components/pag1/html/pag2.html'">Más información</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="card">
+                        <img src="/img/identidadcr.jpg">
+                        <h3>La identidad de Costa Rica</h3>
+                        <p>La identidad de Costa Rica está profundamente arraigada en su historia, cultura y valores. Este pequeño país centroamericano se distingue por su compromiso con la paz y la democracia, habiendo abolido su ejército en 1948 para invertir en educación y salud. Este acto ha moldeado una sociedad que valora el diálogo y la resolución pacífica de conflictos, tanto a nivel nacional como internacional.</p>
+                        <button onclick="window.location.href='components/pag1/html/pag2.html'">Más información</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="ftdiv">
+            <div class="ftmargin">
+                <div class="ftubicacion">
+                    <p class="ftcontti">CTP de Aserrí</p>
+                    <p>Salitrillos Palo Blanco</p>
+                    <p>Salitrillos Aserrí, 10607 Costa Rica</p>
+                </div>
+                <div></div><div></div><div></div><div></div><div></div>
+                <div class="ftcontacto">
+                    <p class="contti">Contacto</p>
+                    <p>ctp.deaserri@mep.go.cr</p>
+                    <p>+506 2230 3337</p>
+                    <p>+506 2230 0757</p>
+                    <p>+506 7248 6424</p>
+                </div>
+                <div class="ftubicacion">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1652.7870584177529!2d-84.09210830771633!3d9.849336776146515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa11d57ef0dffdb%3A0x8ead9b112212b866!2sColegio%20T%C3%A9cnico%20Profesional%20de%20Aserr%C3%AD!5e0!3m2!1ses-419!2scr!4v1724957666180!5m2!1ses-419!2scr" width="125" height="125" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/components/Navbar/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+
