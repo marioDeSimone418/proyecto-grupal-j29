@@ -1,0 +1,19 @@
+footer {
+    background: #0c2461;
+    align-items: center;
+}
+.ftmargin {
+    margin-right: 2%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.ftcontacto {
+    text-align: center;
+}
+.ftcontti {
+    font-size: 20px;
+    font-weight: bold;
+}
